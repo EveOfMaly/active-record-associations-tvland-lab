@@ -25,6 +25,8 @@ describe Character do
     expect(niles.show).to eq(frasier)
   end
 
+
+
   it "has a catchphrase" do
     
     urkel = Character.new(name: "Steve Urkel")

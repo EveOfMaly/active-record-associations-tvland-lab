@@ -11,17 +11,24 @@ class Actor < ActiveRecord::Base
 
     def list_roles
 
-        roles = []
+        #using each 
+        # roles = []
 
-        self.shows.each do |show|
-            self.characters.each do |char|
-                if char.show_id == show.id 
-                   roles <<  "#{char.name} - #{show.name}"
-                end
-            end
+        # self.shows.each do |show|
+        #     self.characters.each do |char|
+        #         if char.show_id == show.id 
+        #            roles <<  "#{char.name} - #{show.name}"
+        #         end
+        #     end
+        # end
+     
+
+        # roles.join(" ")
+
+        #using collect + character
+        Character.all.collect do |char|
+            "#{char.name} - #{char.show.name}"
         end
-
-        roles.join(" ")
     end
   
 end

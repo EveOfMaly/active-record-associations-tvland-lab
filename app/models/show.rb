@@ -4,16 +4,21 @@ class Show < ActiveRecord::Base
     belongs_to :network
 
 
-    def actors_list 
-        actor_list = []
+    # def actors_list 
+    #     # actor_list = []
 
-        self.actors.each do |actor|
-            actor_list << "#{actor.first_name + " " + actor.last_name}"
-        end
+    #     # self.actors.each do |actor|
+    #     #     actor_list << "#{actor.first_name + " " + actor.last_name}"
+    #     # end
 
-        actor_list
-    end
+    #     # actor_list
 
+       
+    # end
+
+    def actors_list
+        self.actors.map{|actor| actor.full_name}
+     end
 
 
     def build_network(network_attr)
